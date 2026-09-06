@@ -1,10 +1,11 @@
-import React from 'react'
-import Navbar from './components/nav/Nav'
-
+import { Routes, Route } from "react-router-dom";
+import Dashbord from "./pages/dashbord/Dashbord";
 const App = () => {
   return (
 <>
-<Navbar/>
+<Routes>
+     <Route path="/" element={<Dashbord />} />
+</Routes>
 </>
   )
 }

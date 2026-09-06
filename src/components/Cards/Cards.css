@@ -1,0 +1,858 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f1f5f9;
+}
+
+
+/* =========================================
+   MAIN DASHBOARD
+========================================= */
+
+.dashboard {
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+  background: #f1f5f9;
+}
+
+.top-cards,
+.bottom-cards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 30px;
+}
+
+.bottom-cards {
+  margin-top: 30px;
+}
+
+
+/* =========================================
+   COMMON CARD
+========================================= */
+
+.earnings-card,
+.order-card,
+.income-blue,
+.income-white {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+
+/* =========================================
+   EARNINGS CARD
+   TOP LEFT
+========================================= */
+
+.earnings-card {
+  width: 100%;
+  height: 226px;
+  padding: 23px;
+
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: #6035b6;
+  color: #ffffff;
+}
+
+
+/* Purple background circles */
+
+.earnings-card .shape-1 {
+  position: absolute;
+
+  width: 245px;
+  height: 245px;
+
+  top: -135px;
+  right: -35px;
+
+  border-radius: 50%;
+
+  background: rgba(49, 21, 130, 0.28);
+
+  pointer-events: none;
+}
+
+.earnings-card .shape-2 {
+  position: absolute;
+
+  width: 230px;
+  height: 230px;
+
+  top: -65px;
+  right: -80px;
+
+  border-radius: 50%;
+
+  background: rgba(46, 19, 123, 0.30);
+
+  pointer-events: none;
+}
+
+
+/* Earnings top */
+
+.earnings-top {
+  position: relative;
+  z-index: 10;
+
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* Earnings icon */
+
+.earnings-icon {
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background: #4c299b;
+  color: #ffffff;
+
+  font-size: 27px;
+}
+
+.earnings-icon svg {
+  width: 27px;
+  height: 27px;
+  stroke-width: 2;
+}
+
+
+/* More button */
+
+.more-btn {
+  width: 42px;
+  height: 42px;
+
+  padding: 0;
+  border: none;
+  outline: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 4px;
+
+  border-radius: 11px;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  cursor: pointer;
+}
+
+.more-btn span {
+  display: block;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #d7c7f4;
+}
+
+
+/* Earnings content */
+
+.earnings-content {
+  position: relative;
+  z-index: 10;
+
+  margin-top: 20px;
+}
+
+
+/* Amount row */
+
+.amount-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.amount-row h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 42px;
+  line-height: 1;
+  font-weight: 500;
+
+  letter-spacing: -1px;
+}
+
+
+/* Arrow */
+
+.arrow-circle {
+  width: 29px;
+  height: 29px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #bca3e8;
+  color: #5b32a9;
+}
+
+.arrow-circle svg {
+  width: 17px;
+  height: 17px;
+
+  stroke-width: 2.5;
+}
+
+
+/* Earnings paragraph */
+
+.earnings-content p {
+  margin: 20px 0 0;
+
+  color: #c5afe9;
+
+  font-size: 19px;
+  line-height: 1;
+  font-weight: 500;
+}
+
+
+/* =========================================
+   ORDER CARD
+   TOP RIGHT
+========================================= */
+
+.order-card {
+  width: 100%;
+  height: 226px;
+
+  padding: 23px;
+
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: #2589df;
+  color: #ffffff;
+}
+
+
+/* Order background circles */
+
+.order-circle {
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.order-circle-1 {
+  width: 230px;
+  height: 230px;
+
+  top: -145px;
+  right: -10px;
+
+  background: rgba(0, 91, 181, 0.30);
+}
+
+.order-circle-2 {
+  width: 205px;
+  height: 205px;
+
+  top: -65px;
+  right: -75px;
+
+  background: rgba(0, 91, 181, 0.23);
+}
+
+
+/* Order header */
+
+.order-header {
+  position: relative;
+  z-index: 10;
+
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* Order icon */
+
+.order-icon {
+  width: 50px;
+  height: 50px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background: #1471c5;
+  color: #ffffff;
+
+  font-size: 27px;
+}
+
+.order-icon svg {
+  width: 26px;
+  height: 26px;
+
+  stroke-width: 2;
+}
+
+
+/* =========================================
+   MONTH / YEAR
+========================================= */
+
+.order-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: -10px;
+}
+
+.order-tabs span {
+  height: 45px;
+
+  padding: 0 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #ffffff;
+
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 600;
+}
+
+.order-tabs button {
+  height: 45px;
+
+  padding: 0 22px;
+
+  border: none;
+  outline: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background: #2695ed;
+  color: #ffffff;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+/* =========================================
+   ORDER CONTENT
+========================================= */
+
+.order-info {
+  position: relative;
+  z-index: 10;
+
+  margin-top: 20px;
+}
+
+.order-number {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.order-number h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 42px;
+  line-height: 1;
+  font-weight: 500;
+
+  letter-spacing: -1px;
+}
+
+
+/* Order arrow */
+
+.order-arrow {
+  width: 29px;
+  height: 29px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #72b9ed;
+  color: #1674bd;
+}
+
+.order-arrow svg {
+  width: 17px;
+  height: 17px;
+
+  stroke-width: 2.5;
+}
+
+
+/* Total Order */
+
+.order-info p {
+  margin: 20px 0 0;
+
+  color: #a7d2f6;
+
+  font-size: 19px;
+  line-height: 1;
+  font-weight: 500;
+}
+
+
+/* =========================================
+   GRAPH
+========================================= */
+
+.order-graph {
+  position: absolute;
+
+  z-index: 8;
+
+  width: 220px;
+  height: 82px;
+
+  right: 24px;
+  bottom: 28px;
+
+  display: block;
+
+  overflow: visible;
+
+  pointer-events: none;
+}
+
+.order-graph path {
+  fill: none;
+
+  stroke: #ffffff;
+
+  stroke-width: 3.5;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+/* =========================================
+   SMALL BLUE CARD
+   BOTTOM LEFT
+========================================= */
+
+.income-blue {
+  width: 100%;
+  height: 100px;
+
+  padding: 20px;
+
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+
+  border-radius: 10px;
+
+  background: #2589df;
+  color: #ffffff;
+}
+
+
+/* Blue decorative circle */
+
+.income-blue-shape {
+  position: absolute;
+
+  width: 150px;
+  height: 150px;
+
+  top: -90px;
+  right: -65px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.18);
+
+  pointer-events: none;
+}
+
+
+/* Second blue circle */
+
+.income-blue::after {
+  content: "";
+
+  position: absolute;
+
+  width: 115px;
+  height: 115px;
+
+  right: -20px;
+  bottom: -80px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.09);
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   SMALL WHITE CARD
+   BOTTOM RIGHT
+========================================= */
+
+.income-white {
+  width: 100%;
+  height: 100px;
+
+  padding: 20px;
+
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+  color: #111827;
+}
+
+
+/* Yellow circle */
+
+.income-white-shape {
+  position: absolute;
+
+  width: 150px;
+  height: 150px;
+
+  top: -90px;
+  right: -70px;
+
+  border-radius: 50%;
+
+  background: #fff8dc;
+
+  pointer-events: none;
+}
+
+
+/* Second yellow circle */
+
+.income-white::after {
+  content: "";
+
+  position: absolute;
+
+  width: 120px;
+  height: 120px;
+
+  right: -35px;
+  bottom: -80px;
+
+  border-radius: 50%;
+
+  background: #fffdf4;
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   SMALL CARD ICON
+========================================= */
+
+.small-card-icon {
+  position: relative;
+  z-index: 10;
+
+  width: 50px;
+  height: 50px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  font-size: 25px;
+}
+
+.small-card-icon svg {
+  width: 25px;
+  height: 25px;
+}
+
+
+/* Blue icon */
+
+.blue-icon {
+  background: #1471c5;
+  color: #ffffff;
+}
+
+
+/* Yellow icon */
+
+.yellow-icon {
+  background: #fff4d3;
+  color: #e5b400;
+}
+
+
+/* =========================================
+   SMALL CARD TEXT
+========================================= */
+
+.small-card-content {
+  position: relative;
+  z-index: 10;
+
+  margin-left: 20px;
+}
+
+.small-card-content h2 {
+  margin: 0 0 7px;
+
+  color: inherit;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.small-card-content p {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 15px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+
+/* White card text */
+
+.income-white .small-card-content h2 {
+  color: #111827;
+}
+
+.income-white .small-card-content p {
+  color: #8b8f98;
+}
+
+
+/* =========================================
+   DESKTOP EXACT SIZE
+========================================= */
+
+@media (min-width: 769px) {
+  .dashboard {
+    padding: 20px;
+  }
+
+  .top-cards,
+  .bottom-cards {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 30px;
+  }
+
+  .bottom-cards {
+    margin-top: 30px;
+  }
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 768px) {
+
+  .dashboard {
+    padding: 15px;
+  }
+
+  .top-cards,
+  .bottom-cards {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .bottom-cards {
+    margin-top: 15px;
+  }
+
+  .earnings-card,
+  .order-card {
+    height: 226px;
+  }
+
+  .order-graph {
+    width: 210px;
+    right: 20px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+  .dashboard {
+    padding: 12px;
+  }
+
+  .top-cards,
+  .bottom-cards {
+    gap: 12px;
+  }
+
+  .bottom-cards {
+    margin-top: 12px;
+  }
+
+  .earnings-card,
+  .order-card {
+    height: 220px;
+    padding: 20px;
+  }
+
+  .earnings-icon,
+  .order-icon,
+  .small-card-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .amount-row h2,
+  .order-number h2 {
+    font-size: 36px;
+  }
+
+  .earnings-content p,
+  .order-info p {
+    font-size: 17px;
+  }
+
+  .order-tabs {
+    gap: 3px;
+  }
+
+  .order-tabs span {
+    padding: 0 6px;
+    font-size: 13px;
+  }
+
+  .order-tabs button {
+    padding: 0 13px;
+    font-size: 13px;
+  }
+
+  .order-graph {
+    width: 175px;
+    height: 70px;
+
+    right: 10px;
+    bottom: 25px;
+  }
+
+  .small-card-content {
+    margin-left: 15px;
+  }
+
+  .small-card-content h2 {
+    font-size: 19px;
+  }
+
+  .small-card-content p {
+    font-size: 14px;
+  }
+}
