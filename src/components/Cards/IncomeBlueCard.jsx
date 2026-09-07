@@ -10,6 +10,7 @@ const IncomeBlueCard = () => {
       </div>
 
       <div className="small-card-content">
+     
         <h2>$203k</h2>
         <p>Total Income</p>
       </div>

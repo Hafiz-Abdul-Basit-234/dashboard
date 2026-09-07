@@ -30,7 +30,7 @@ const OrderCard = () => {
           </div>
         </div>
 
-        <p>Total Order</p>
+    
       </div>
 
       {/* GRAPH */}
