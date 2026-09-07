@@ -1,3 +1,14 @@
+.users-link{
+  text-decoration: none;
+  color: #172033;
+}
+
+.users-link:hover{
+  text-decoration: none;
+}
+.dahbord{
+  text-decoration: none;
+}
 .sidebar {
   position: fixed;
   top: 0;

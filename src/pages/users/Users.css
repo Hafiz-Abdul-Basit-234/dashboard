@@ -1,0 +1,24 @@
+.users-header {
+  padding: 20px;
+  display: flex;
+  justify-content: flex-end; /* Right Side */
+}
+body {
+    color : #172033;
+}
+.add-user-btn {
+  border: none;
+  background: #3b82f6;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-user-btn:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+}

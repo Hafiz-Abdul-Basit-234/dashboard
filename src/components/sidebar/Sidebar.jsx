@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Sidebar.css";
 import {
   FiGrid,
@@ -31,7 +32,9 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
           <FiX />
         </button>
 
-        <h3>Dashboard</h3>
+        <Link to='/' className="dahbord">
+        <h3>Dashboard </h3>
+        </Link>
 
         <div className="sidebar-menu">
 
@@ -78,7 +81,9 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
 
   <div className="sidebar-item">
     <FiUser />
-    <span>Users</span>
+  <Link to="/users" className="users-link">
+  <span>Users</span>
+</Link>
 
     <FiChevronDown className="arrow" />
   </div>
