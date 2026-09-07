@@ -2,8 +2,8 @@ import Navbar from "../../components/nav/Nav"
 import"./dashbord.css";
 import EarningsCard from "../../components/Cards/EarningsCard";
 import OrdersCard from "../../components/Cards/OrdersCard";
-import IncomeBlueCard from "../../components/cards/IncomeBlueCard";
-import IncomeWhiteCard from "../../components/cards/IncomeWhiteCard";
+import IncomeBlueCard from "../../components/Cards/IncomeBlueCard";
+import IncomeWhiteCard from "../../components/Cards/IncomeWhiteCard";
 const Dashboard = () => {
   return (
     <>
