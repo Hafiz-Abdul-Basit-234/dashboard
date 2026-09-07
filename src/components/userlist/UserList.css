@@ -1,0 +1,304 @@
+/* =========================================
+   USER ROW
+========================================= */
+
+/*
+   IMPORTANT:
+
+   Ye columns Users.css ke header ke
+   EXACT SAME hain.
+
+   70
+   350
+   220
+   120
+   120
+   120
+*/
+
+.user-list-row {
+  width: 100%;
+
+  min-width: 1000px;
+
+  height: 90px;
+
+  display: grid;
+
+  grid-template-columns:
+    70px
+    350px
+    220px
+    120px
+    120px
+    120px;
+
+  align-items: center;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border-bottom: 1px solid #edf0f4;
+
+  color: #778196;
+}
+
+
+/* =========================================
+   NUMBER
+========================================= */
+
+.user-number {
+  padding-left: 30px;
+
+  color: #748096;
+
+  font-size: 15px;
+
+  font-weight: 400;
+}
+
+
+/* =========================================
+   PROFILE
+========================================= */
+
+.user-profile {
+  display: flex;
+
+  align-items: center;
+
+  gap: 17px;
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.user-avatar {
+  width: 46px;
+  height: 46px;
+
+  min-width: 46px;
+
+  object-fit: cover;
+
+  display: block;
+
+  border-radius: 50%;
+
+  border: 1px solid #e4e7ec;
+}
+
+
+/* =========================================
+   DETAILS
+========================================= */
+
+.user-details {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  min-width: 0;
+}
+
+
+/* =========================================
+   NAME
+========================================= */
+
+.user-name {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  margin-bottom: 4px;
+
+  color: #252b38;
+
+  font-size: 16px;
+
+  line-height: 19px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================
+   VERIFIED
+========================================= */
+
+.verified-icon {
+  width: 16px;
+  height: 16px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  border: 1.5px solid #16c978;
+
+  border-radius: 50%;
+
+  color: #16c978;
+}
+
+
+.verified-icon svg {
+  width: 10px;
+  height: 10px;
+
+  stroke-width: 3;
+}
+
+
+/* =========================================
+   EMAIL
+========================================= */
+
+.user-email {
+  color: #7064e8;
+
+  font-size: 14px;
+
+  line-height: 18px;
+
+  font-weight: 400;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   COUNTRY
+========================================= */
+
+.user-country {
+  color: #778196;
+
+  font-size: 15px;
+
+  line-height: 21px;
+
+  font-weight: 400;
+}
+
+
+/* =========================================
+   FRIENDS
+========================================= */
+
+.user-friends {
+  color: #778196;
+
+  font-size: 15px;
+
+  line-height: 21px;
+
+  font-weight: 400;
+}
+
+
+/* =========================================
+   FOLLOWERS
+========================================= */
+
+.user-followers {
+  color: #778196;
+
+  font-size: 15px;
+
+  line-height: 21px;
+
+  font-weight: 400;
+}
+
+
+/* =========================================
+   STATUS
+========================================= */
+
+.user-status {
+  display: flex;
+
+  align-items: center;
+}
+
+
+/* =========================================
+   STATUS BADGE
+========================================= */
+
+.status-badge {
+  min-width: 77px;
+
+  height: 34px;
+
+  padding: 0 17px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  border-radius: 20px;
+
+  font-size: 14px;
+
+  font-weight: 500;
+}
+
+
+/* =========================================
+   ACTIVE
+========================================= */
+
+.status-badge.active {
+  background: #dff7eb;
+
+  color: #15ad65;
+}
+
+
+/* =========================================
+   PENDING
+========================================= */
+
+.status-badge.pending {
+  background: #fff1d8;
+
+  color: #e99b1b;
+}
+
+
+/* =========================================
+   REJECTED
+========================================= */
+
+.status-badge.rejected {
+  background: #fde4e4;
+
+  color: #f05d5d;
+}
+
+
+/* =========================================
+   HOVER
+========================================= */
+
+.user-list-row:hover {
+  background: #fcfcfe;
+}
