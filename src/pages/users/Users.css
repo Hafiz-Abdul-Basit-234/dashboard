@@ -137,3 +137,106 @@
     gap: 14px;
   }
 }
+@media (max-width:1200px){
+  .users-header{
+    grid-template-columns:50px 2fr 1fr 100px 100px;
+  }
+
+  .user-list-row{
+    grid-template-columns:50px 2fr 1fr 100px 100px;
+  }
+
+  .header-followers,
+  .user-followers{
+    display:none;
+  }
+}
+@media (max-width:992px){
+
+  .users-header{
+    grid-template-columns:50px 2fr 100px 100px;
+  }
+
+  .user-list-row{
+    grid-template-columns:50px 2fr 100px 100px;
+  }
+
+  .header-country,
+  .user-country{
+    display:none;
+  }
+}
+@media (max-width:767px){
+
+  .users-header{
+    display:none;
+  }
+
+  .users-card{
+    background:transparent;
+    border:none;
+    box-shadow:none;
+  }
+
+  .users-list{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+
+  .user-list-row{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+
+    height:auto;
+    padding:16px;
+
+    border:1px solid #e2e8f0;
+    border-radius:16px;
+    background:#fff;
+  }
+
+  .user-profile{
+    width:100%;
+    margin-bottom:12px;
+  }
+
+  .user-country,
+  .user-friends,
+  .user-followers{
+    display:block;
+    width:100%;
+    padding:8px 0;
+    border-top:1px solid #f1f5f9;
+  }
+
+  .user-status{
+    margin-top:10px;
+  }
+}
+@media (max-width:480px){
+
+  .users-page{
+    padding:0 10px 25px;
+  }
+
+  .add-user-btn{
+    width:100%;
+    justify-content:center;
+  }
+
+  .user-avatar{
+    width:38px;
+    height:38px;
+    min-width:38px;
+  }
+
+  .user-name{
+    font-size:14px;
+  }
+
+  .user-email{
+    font-size:12px;
+  }
+}
