@@ -1,850 +1,122 @@
 /* =========================================
-   PAGE
+   PAGE CONTAINER
 ========================================= */
 
 .users-page {
   width: 100%;
   min-height: 100vh;
-
-  padding: 0 10px 30px;
-
+  padding: 0 20px 40px;
   box-sizing: border-box;
-
   background: #f5f7fb;
-
-  font-family:
-    Inter,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-
 /* =========================================
-   ADD NEW
+   TOP ACTIONS (ADD NEW BUTTON)
 ========================================= */
 
 .users-actions {
   width: 100%;
-
-  padding: 20px 10px;
-
+  padding: 24px 20px 16px;
   box-sizing: border-box;
-
   display: flex;
   justify-content: flex-end;
   align-items: center;
-
-  background: #f5f7fb;
 }
-
 
 .add-user-btn {
   border: none;
   outline: none;
-
   background: #3b82f6;
-
-  color: white;
-
-  padding: 12px 22px;
-
+  color: #ffffff;
+  padding: 12px 24px;
   border-radius: 10px;
-
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
-
   cursor: pointer;
-
-  transition: 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 2px 6px rgba(59, 130, 246, 0.25);
 }
-
 
 .add-user-btn:hover {
   background: #2563eb;
 }
 
+.add-user-btn:active {
+  transform: scale(0.98);
+}
 
 /* =========================================
-   CARD
+   MAIN CARD CONTAINER
 ========================================= */
 
 .users-card {
   width: 100%;
-
   background: #ffffff;
-
-  border-radius: 17px;
-
-  overflow-x: auto;
-  overflow-y: hidden;
-
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
   box-sizing: border-box;
 }
 
-
 /* =========================================
-   HEADER
+   DESKTOP TABLE HEADER
 ========================================= */
-
-/*
-   IMPORTANT:
-
-   Header aur UserList dono mein
-   EXACT same columns hain.
-
-   70
-   350
-   220
-   120
-   120
-   120
-
-   Total = 1000px
-*/
 
 .users-header {
   width: 100%;
-
-  min-width: 1000px;
-
-  height: 66px;
-
+  height: 56px;
   display: grid;
-
-  grid-template-columns:
-    70px
-    350px
-    220px
-    120px
-    120px
-    120px;
-
+  grid-template-columns: 60px minmax(220px, 1.5fr) minmax(140px, 1fr) 110px 110px 110px;
   align-items: center;
-
   box-sizing: border-box;
-
-  background: #ffffff;
-
+  background: #fafbfc;
   border-bottom: 1px solid #edf0f4;
-
   color: #8c96a9;
-
-  font-size: 15px;
-
+  font-size: 13px;
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0 20px;
 }
-
 
 /* =========================================
-   HEADER CELLS
+   RESPONSIVE BREAKPOINTS
 ========================================= */
 
-.header-number {
-  padding-left: 30px;
-}
-
-.header-profile {
-  padding-left: 0;
-}
-
-.header-country {
-  padding-left: 0;
-}
-
-.header-friends {
-  padding-left: 0;
-}
-
-.header-followers {
-  padding-left: 0;
-}
-
-.header-status {
-  padding-left: 0;
-}
-
-
-/* =========================================
-   USER LIST
-========================================= */
-
-.users-list {
-  width: 100%;
-
-  min-width: 1000px;
-}
-
-
-/* =========================================
-   SCROLLBAR
-========================================= */
-
-.users-card::-webkit-scrollbar {
-  height: 5px;
-}
-
-.users-card::-webkit-scrollbar-track {
-  background: #f5f6f8;
-}
-
-.users-card::-webkit-scrollbar-thumb {
-  background: #d5d9e1;
-
-  border-radius: 10px;
-}
-/* =========================================================
-   PROFESSIONAL RESPONSIVE
-   NO HORIZONTAL SCROLL
-   JSX MEIN KUCH ADD NAHI KARNA
-========================================================= */
-
-
-/* =========================================================
-   TABLET
-   768px - 991px
-========================================================= */
-
+/* Tablet (Under 991px) */
 @media (max-width: 991px) {
-
-  .users-page {
-    padding: 0 15px 30px;
-  }
-
-  .users-actions {
-    padding: 16px 15px;
-  }
-
-  .users-card {
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .users-header,
-  .user-list-row {
-    grid-template-columns:
-      55px
-      minmax(260px, 1fr)
-      150px
-      90px
-      100px
-      100px;
-  }
-
   .users-header {
-    min-width: 0;
+    grid-template-columns: 50px minmax(180px, 1.2fr) minmax(120px, 1fr) 90px 90px 90px;
+    padding: 0 16px;
+    font-size: 12px;
   }
-
-  .users-list {
-    min-width: 0;
-  }
-
-  .user-list-row {
-    min-width: 0;
-  }
-
 }
 
-
-/* =========================================================
-   MOBILE
-   767px AND BELOW
-========================================================= */
-
+/* Mobile Screens (Under 767px) */
 @media (max-width: 767px) {
-
-  /* -----------------------------------------
-     PAGE
-  ----------------------------------------- */
-
   .users-page {
-    width: 100%;
-    padding: 0 10px 25px;
+    padding: 0 12px 24px;
   }
-
-
-  /* -----------------------------------------
-     BUTTON
-  ----------------------------------------- */
 
   .users-actions {
-    padding: 14px 10px;
+    padding: 16px 12px 12px;
   }
-
-  .add-user-btn {
-    padding: 10px 18px;
-
-    font-size: 14px;
-
-    border-radius: 9px;
-  }
-
-
-  /* -----------------------------------------
-     CARD
-  ----------------------------------------- */
 
   .users-card {
-    width: 100%;
-
-    overflow: hidden;
-
-    border-radius: 14px;
-
     background: transparent;
+    box-shadow: none;
+    border-radius: 0;
   }
 
-
-  /* -----------------------------------------
-     TABLE HEADER
-  ----------------------------------------- */
-
+  /* Desktop Header Hidden on Mobile */
   .users-header {
-
-    min-width: 0;
-
-    width: 100%;
-
-    height: 55px;
-
-    grid-template-columns:
-      40px
-      1fr
-      auto;
-
-    padding: 0 15px;
-
-    box-sizing: border-box;
-
-    font-size: 13px;
-  }
-
-
-  .header-number {
-    padding-left: 0;
-  }
-
-
-  .header-profile {
-    padding-left: 0;
-  }
-
-
-  /*
-     Mobile par Country/Friends/Followers
-     header ki zaroorat nahi.
-  */
-
-  .header-country,
-  .header-friends,
-  .header-followers {
     display: none;
   }
 
-
-  .header-status {
-    display: block;
-
-    padding-left: 0;
-  }
-
-
-  /* -----------------------------------------
-     USER LIST
-  ----------------------------------------- */
-
   .users-list {
-    width: 100%;
-
-    min-width: 0;
-
     display: flex;
-
     flex-direction: column;
-
-    gap: 10px;
-  }
-
-
-  /* -----------------------------------------
-     USER CARD
-  ----------------------------------------- */
-
-  .user-list-row {
-
-    width: 100%;
-
-    min-width: 0;
-
-    height: auto;
-
-    min-height: 190px;
-
-    padding: 18px;
-
-    display: grid;
-
-    grid-template-columns:
-      35px
-      1fr;
-
-    grid-template-rows:
-      auto
-      auto
-      auto
-      auto;
-
-    column-gap: 10px;
-
-    row-gap: 12px;
-
-    box-sizing: border-box;
-
-    border: 1px solid #edf0f4;
-
-    border-radius: 14px;
-
-    background: #ffffff;
-
-    position: relative;
-  }
-
-
-  /* -----------------------------------------
-     NUMBER
-  ----------------------------------------- */
-
-  .user-number {
-
-    padding-left: 0;
-
-    font-size: 13px;
-
-    align-self: start;
-  }
-
-
-  /* -----------------------------------------
-     PROFILE
-  ----------------------------------------- */
-
-  .user-profile {
-
-    min-width: 0;
-
-    display: flex;
-
-    align-items: center;
-
     gap: 12px;
-
-    padding-right: 75px;
   }
-
-
-  .user-avatar {
-
-    width: 44px;
-    height: 44px;
-
-    min-width: 44px;
-  }
-
-
-  .user-details {
-
-    min-width: 0;
-
-    overflow: hidden;
-  }
-
-
-  .user-name {
-
-    margin-bottom: 3px;
-
-    font-size: 15px;
-
-    line-height: 18px;
-
-    white-space: nowrap;
-  }
-
-
-  .user-email {
-
-    max-width: 100%;
-
-    overflow: hidden;
-
-    text-overflow: ellipsis;
-
-    font-size: 12px;
-
-    line-height: 17px;
-
-    white-space: nowrap;
-  }
-
-
-  /* -----------------------------------------
-     COUNTRY
-  ----------------------------------------- */
-
-  .user-country {
-
-    grid-column: 1 / -1;
-
-    padding: 8px 0 0 45px;
-
-    border-top: 1px solid #f0f2f5;
-
-    font-size: 13px;
-
-    line-height: 20px;
-
-    white-space: nowrap;
-
-    overflow: hidden;
-
-    text-overflow: ellipsis;
-  }
-
-
-  /*
-     Country ke pehle CSS se "Country:"
-     show karenge.
-  */
-
-  .user-country::before {
-
-    content: "Country: ";
-
-    color: #9aa3b2;
-
-    font-weight: 500;
-  }
-
-
-  /* -----------------------------------------
-     FRIENDS
-  ----------------------------------------- */
-
-  .user-friends {
-
-    grid-column: 1 / 2;
-
-    padding-left: 45px;
-
-    font-size: 13px;
-
-    line-height: 20px;
-
-    position: relative;
-  }
-
-
-  .user-friends::before {
-
-    content: "Friends: ";
-
-    color: #9aa3b2;
-
-    font-weight: 500;
-  }
-
-
-  /* -----------------------------------------
-     FOLLOWERS
-  ----------------------------------------- */
-
-  .user-followers {
-
-    grid-column: 2 / 3;
-
-    font-size: 13px;
-
-    line-height: 20px;
-  }
-
-
-  .user-followers::before {
-
-    content: "Followers: ";
-
-    color: #9aa3b2;
-
-    font-weight: 500;
-  }
-
-
-  /* -----------------------------------------
-     STATUS
-  ----------------------------------------- */
-
-  .user-status {
-
-    position: absolute;
-
-    top: 18px;
-
-    right: 18px;
-
-    display: flex;
-
-    align-items: center;
-  }
-
-
-  .status-badge {
-
-    min-width: 68px;
-
-    height: 30px;
-
-    padding: 0 12px;
-
-    border-radius: 18px;
-
-    font-size: 12px;
-
-    white-space: nowrap;
-  }
-
-}
-
-
-/* =========================================================
-   SMALL MOBILE
-   576px - 767px
-========================================================= */
-
-@media (max-width: 575px) {
-
-  .users-page {
-    padding: 0 8px 20px;
-  }
-
-
-  .users-actions {
-    padding: 12px 8px;
-  }
-
-
-  .add-user-btn {
-    padding: 9px 16px;
-
-    font-size: 13px;
-  }
-
-
-  .users-header {
-
-    height: 52px;
-
-    grid-template-columns:
-      35px
-      1fr
-      auto;
-
-    padding: 0 13px;
-
-    font-size: 12px;
-  }
-
-
-  .user-list-row {
-
-    min-height: 180px;
-
-    padding: 16px;
-
-    grid-template-columns:
-      32px
-      1fr;
-
-    column-gap: 9px;
-
-    row-gap: 10px;
-
-    border-radius: 13px;
-  }
-
-
-  .user-profile {
-
-    gap: 10px;
-
-    padding-right: 65px;
-  }
-
-
-  .user-avatar {
-
-    width: 42px;
-    height: 42px;
-
-    min-width: 42px;
-  }
-
-
-  .user-name {
-    font-size: 14px;
-  }
-
-
-  .user-email {
-    font-size: 11px;
-  }
-
-
-  .user-country {
-
-    padding-left: 42px;
-
-    font-size: 12px;
-  }
-
-
-  .user-friends {
-
-    padding-left: 42px;
-
-    font-size: 12px;
-  }
-
-
-  .user-followers {
-    font-size: 12px;
-  }
-
-
-  .user-status {
-
-    top: 16px;
-
-    right: 16px;
-  }
-
-
-  .status-badge {
-
-    min-width: 62px;
-
-    height: 28px;
-
-    padding: 0 10px;
-
-    font-size: 11px;
-  }
-
-}
-
-
-/* =========================================================
-   VERY SMALL MOBILE
-   320px - 399px
-========================================================= */
-
-@media (max-width: 399px) {
-
-  .users-page {
-    padding-left: 5px;
-    padding-right: 5px;
-  }
-
-
-  .users-actions {
-    padding-left: 5px;
-    padding-right: 5px;
-  }
-
-
-  .users-header {
-
-    padding: 0 11px;
-
-    grid-template-columns:
-      30px
-      1fr
-      auto;
-
-    font-size: 11px;
-  }
-
-
-  .user-list-row {
-
-    min-height: 175px;
-
-    padding: 14px;
-
-    grid-template-columns:
-      30px
-      1fr;
-
-    border-radius: 12px;
-  }
-
-
-  .user-profile {
-
-    gap: 9px;
-
-    padding-right: 58px;
-  }
-
-
-  .user-avatar {
-
-    width: 40px;
-    height: 40px;
-
-    min-width: 40px;
-  }
-
-
-  .user-name {
-    font-size: 13px;
-  }
-
-
-  .user-email {
-    font-size: 10px;
-  }
-
-
-  .user-country {
-
-    padding-left: 39px;
-
-    font-size: 11px;
-  }
-
-
-  .user-friends {
-
-    padding-left: 39px;
-
-    font-size: 11px;
-  }
-
-
-  .user-followers {
-    font-size: 11px;
-  }
-
-
-  .status-badge {
-
-    min-width: 58px;
-
-    height: 26px;
-
-    padding: 0 8px;
-
-    font-size: 10px;
-  }
-
 }
