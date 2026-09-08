@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../../components/nav/Nav";
-import UserList from "../../components/userList/UserList";
+import UserList from "../../components/userlist/UserList";
 import "./Users.css";
 
 const users = [
