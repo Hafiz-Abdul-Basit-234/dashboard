@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Sidebar.css";
 import {
+  FiPackage,
   FiGrid,
   FiMonitor,
   FiFileText,
@@ -88,12 +89,14 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
     <FiChevronDown className="arrow" />
   </div>
 </Link>
+<Link to='/orders' className="users-link">
   <div className="sidebar-item">
     <FiHeadphones />
     <span>Customer</span>
 
     <FiChevronDown className="arrow" />
   </div>
+  </Link>
   <Link to="/orders" className="users-link">
   <div className="sidebar-item">
     <FiShoppingCart />
@@ -108,6 +111,12 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
   </div>
 
 </div>
+<Link to="/products" className="users-link">
+  <div className="sidebar-item">
+    <FiPackage />
+    <span>Products</span>
+  </div>
+</Link>
       </aside>
     </>
   );
