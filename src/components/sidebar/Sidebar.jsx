@@ -94,7 +94,7 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
 
     <FiChevronDown className="arrow" />
   </div>
-  <Link to="/users" className="users-link">
+  <Link to="/orders" className="users-link">
   <div className="sidebar-item">
     <FiShoppingCart />
     <span>Order</span>
