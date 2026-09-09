@@ -1,58 +1,169 @@
-
 .orders-page {
   padding: 30px;
+  background: #f5f7fb;
+  min-height: 100vh;
 }
+
+/* ======================
+   TOP SECTION
+====================== */
 
 .orders-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 25px;
+  margin-bottom: 30px;
+  padding: 30px;
+  border-radius: 24px;
+  background: linear-gradient(
+    135deg,
+    #6851ff 0%,
+    #7c5cff 45%,
+    #9f7aea 100%
+  );
+  box-shadow: 0 15px 40px rgba(104, 81, 255, 0.25);
+  flex-wrap: wrap;
+}
+
+.orders-title h1 {
+  font-size: 34px;
+  color: white;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.orders-title p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 15px;
+}
+
+/* ======================
+   STATS
+====================== */
+
+.orders-stats {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.stat-box {
+  min-width: 130px;
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255,255,255,0.15);
+  text-align: center;
+  transition: 0.3s;
+}
+
+.stat-box:hover {
+  transform: translateY(-5px);
+}
+
+.stat-box span {
+  display: block;
+  color: rgba(255,255,255,0.8);
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.stat-box h3 {
+  color: white;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.stat-box.delivered {
+  background: rgba(34, 197, 94, 0.18);
+}
+
+.stat-box.pending {
+  background: rgba(245, 158, 11, 0.18);
+}
+
+.stat-box.processing {
+  background: rgba(59, 130, 246, 0.18);
+}
+
+/* ======================
+   FILTERS
+====================== */
+
+.orders-controls {
+  display: flex;
+  gap: 15px;
   margin-bottom: 25px;
 }
 
-.orders-top h1 {
-  font-size: 28px;
-  margin-bottom: 5px;
-}
-
-.orders-top p {
-  color: #888;
-}
-
-.add-order-btn {
+.orders-controls input,
+.orders-controls select {
+  height: 50px;
   border: none;
-  background: #6851ff;
-  color: white;
-  padding: 12px 22px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 600;
+  outline: none;
+  border-radius: 12px;
+  background: white;
+  padding: 0 18px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
+
+.orders-controls input {
+  width: 320px;
+}
+
+.orders-controls select {
+  width: 180px;
+}
+
+/* ======================
+   TABLE CARD
+====================== */
 
 .orders-card {
   background: white;
-  border-radius: 16px;
+  border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.07);
 }
+
+/* ======================
+   HEADER
+====================== */
 
 .orders-header,
 .order-row {
   display: grid;
-  grid-template-columns: 120px 1.5fr 1.5fr 120px 140px;
+  grid-template-columns: 100px 1.7fr 1.5fr 120px 150px;
   align-items: center;
 }
 
 .orders-header {
-  background: #f8f8f8;
-  padding: 18px 25px;
+  background: #f8f9fc;
+  padding: 18px 24px;
   font-weight: 700;
-}
-
-.order-row {
-  padding: 18px 25px;
+  color: #555;
   border-bottom: 1px solid #eee;
 }
+
+/* ======================
+   ROW
+====================== */
+
+.order-row {
+  padding: 18px 24px;
+  border-bottom: 1px solid #f1f1f1;
+  transition: 0.3s;
+}
+
+.order-row:hover {
+  background: #fafbff;
+}
+
+/* ======================
+   CUSTOMER
+====================== */
 
 .customer-info {
   display: flex;
@@ -61,14 +172,19 @@
 }
 
 .customer-info img {
-  width: 45px;
-  height: 45px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
+/* ======================
+   STATUS
+====================== */
+
 .status {
-  padding: 7px 14px;
-  border-radius: 20px;
+  padding: 7px 16px;
+  border-radius: 50px;
   font-size: 13px;
   font-weight: 600;
 }
@@ -88,7 +204,33 @@
   color: #2563eb;
 }
 
+/* ======================
+   MOBILE
+====================== */
+
 @media (max-width: 900px) {
+  .orders-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .orders-stats {
+    width: 100%;
+  }
+
+  .stat-box {
+    flex: 1;
+  }
+
+  .orders-controls {
+    flex-direction: column;
+  }
+
+  .orders-controls input,
+  .orders-controls select {
+    width: 100%;
+  }
+
   .orders-header {
     display: none;
   }
@@ -96,6 +238,175 @@
   .order-row {
     grid-template-columns: 1fr;
     gap: 12px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    background: white;
   }
 }
 
+@media (max-width: 768px) {
+
+  .order-row {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 15px;
+    margin-bottom: 12px;
+    background: #fff;
+    border-radius: 14px;
+    border: 1px solid #eee;
+  }
+
+  /* LINE 1: IMAGE + NAME */
+  .customer-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid #f1f1f1;
+    padding-bottom: 10px;
+  }
+
+  .customer-info img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .customer-info span {
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  /* LINE 2: ALL DATA HORIZONTAL */
+  .order-row > div:not(.customer-info) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+  }
+
+  /* Wrap all data in one row */
+  .order-row {
+    gap: 10px;
+  }
+
+  /* Make second line horizontal */
+  .order-row > div:nth-child(1),
+  .order-row > div:nth-child(3),
+  .order-row > div:nth-child(4),
+  .order-row > div:nth-child(5) {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  /* Optional: labels */
+  .order-row > div:nth-child(1)::before {
+    content: "ID: ";
+    font-weight: 600;
+    color: #666;
+  }
+
+  .order-row > div:nth-child(3)::before {
+    content: "Product: ";
+    font-weight: 600;
+    color: #666;
+  }
+
+  .order-row > div:nth-child(4)::before {
+    content: "Amount: ";
+    font-weight: 600;
+    color: #666;
+  }
+
+  .order-row > div:nth-child(5)::before {
+    content: "Status: ";
+    font-weight: 600;
+    color: #666;
+  }
+
+}
+.order-row {
+  margin-bottom: 0;
+  border-radius: 0;
+  border-bottom: 1px solid #eee;
+}
+.orders-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
+  padding: 25px 28px;
+  border-radius: 20px;
+
+  /* cleaner gradient */
+  background: linear-gradient(135deg, #6851ff, #8b6bff);
+
+  /* softer shadow */
+  box-shadow: 0 10px 25px rgba(104, 81, 255, 0.18);
+
+  flex-wrap: wrap;
+}
+
+/* TITLE */
+.orders-title h1 {
+  font-size: 30px;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.orders-title p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+}
+
+/* STATS CONTAINER */
+.orders-stats {
+  display: flex;
+  gap: 12px;
+}
+
+/* STAT BOX */
+.stat-box {
+  min-width: 110px;
+  padding: 14px 16px;
+  border-radius: 14px;
+
+  /* cleaner glass effect */
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  text-align: center;
+  transition: 0.25s;
+}
+
+.stat-box:hover {
+  transform: translateY(-3px);
+}
+
+/* TEXT */
+.stat-box span {
+  display: block;
+  font-size: 12px;
+  color: rgba(255,255,255,0.75);
+}
+
+.stat-box h3 {
+  margin-top: 4px;
+  font-size: 22px;
+  color: #fff;
+}
+
+/* STATUS COLORS (subtle, not too loud) */
+.stat-box.delivered {
+  border-color: rgba(34,197,94,0.4);
+}
+
+.stat-box.pending {
+  border-color: rgba(245,158,11,0.4);
+}
+
+.stat-box.processing {
+  border-color: rgba(59,130,246,0.4);
+}
