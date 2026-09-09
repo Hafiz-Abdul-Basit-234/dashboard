@@ -79,29 +79,29 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
 
 <div className="sidebar-menu">
 
+  <Link to="/users" className="users-link">
   <div className="sidebar-item">
     <FiUser />
-  <Link to="/users" className="users-link">
   <span>Users</span>
-</Link>
+
 
     <FiChevronDown className="arrow" />
   </div>
-
+</Link>
   <div className="sidebar-item">
     <FiHeadphones />
     <span>Customer</span>
 
     <FiChevronDown className="arrow" />
   </div>
-
+  <Link to="/users" className="users-link">
   <div className="sidebar-item">
     <FiShoppingCart />
     <span>Order</span>
 
     <FiChevronDown className="arrow" />
   </div>
-
+</Link>
   <div className="sidebar-item">
     <FiMessageSquare />
     <span>Chat</span>
