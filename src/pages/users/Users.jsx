@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../../components/nav/Nav";
 import UserList from "../../components/userlist/UserList";
 import "./Users.css";
-import  { useState } from "react";
-import { FiX } from "react-icons/fi";
-const users = [
+
+const initialUsers = [
   {
     id: "01",
     name: "Curtis",
@@ -16,232 +15,236 @@ const users = [
     verified: true,
     image: "https://i.pravatar.cc/150?img=11",
   },
-
-  {
-    id: "02",
-    name: "Xavier",
-    email: "tyrell86@company.com",
-    country: "South Bradfordstad",
-    friends: 634,
-    followers: 2345,
-    status: "Pending",
-    verified: false,
-    image: "https://i.pravatar.cc/150?img=12",
-  },
-
-  {
-    id: "03",
-    name: "Lola",
-    email: "aufderhar56@yahoo.com",
-    country: "North Tannermouth",
-    friends: 164,
-    followers: 9345,
-    status: "Rejected",
-    verified: false,
-    image: "https://i.pravatar.cc/150?img=47",
-  },
-
-  {
-    id: "04",
-    name: "Milton",
-    email: "dikinson49@hotmail.com",
-    country: "North Anika",
-    friends: 684,
-    followers: 3654,
-    status: "Pending",
-    verified: false,
-    image: "https://i.pravatar.cc/150?img=13",
-  },
-
-  {
-    id: "05",
-    name: "Lysanne",
-    email: "lysanne@example.com",
-    country: "Bettelande",
-    friends: 842,
-    followers: 5863,
-    status: "Active",
-    verified: true,
-    image: "https://i.pravatar.cc/150?img=14",
-  },
-
-  {
-    id: "06",
-    name: "Marlon",
-    email: "marlon@example.com",
-    country: "West Michael",
-    friends: 521,
-    followers: 4278,
-    status: "Active",
-    verified: false,
-    image: "https://i.pravatar.cc/150?img=15",
-  },
-
-  {
-    id: "07",
-    name: "Sophia",
-    email: "sophia@example.com",
-    country: "East Jonathan",
-    friends: 391,
-    followers: 7284,
-    status: "Pending",
-    verified: true,
-    image: "https://i.pravatar.cc/150?img=44",
-  },
-
-  {
-    id: "08",
-    name: "Robert",
-    email: "robert@example.com",
-    country: "Lake Robert",
-    friends: 713,
-    followers: 4921,
-    status: "Rejected",
-    verified: false,
-    image: "https://i.pravatar.cc/150?img=68",
-  },
 ];
 
 const Users = () => {
-    const [showForm, setShowForm] = useState(false);
+  const [userData, setUserData] = useState(initialUsers);
+  const [showForm, setShowForm] = useState(false);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    country: "",
+    friends: "",
+    followers: "",
+    status: "Active",
+  });
+
+  const [errors, setErrors] = useState({});
+
+  // ✅ handle input
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+
+    // remove error on typing
+    setErrors((prev) => ({
+      ...prev,
+      [name]: "",
+    }));
+  };
+
+  // ✅ validation
+  const validate = () => {
+    let newErrors = {};
+
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (!formData.email.trim()) newErrors.email = "Email is required";
+    if (!formData.country.trim()) newErrors.country = "Country is required";
+    if (!formData.friends) newErrors.friends = "Required";
+    if (!formData.followers) newErrors.followers = "Required";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  // ✅ add user
+  const addUser = (e) => {
+    e.preventDefault();
+
+    if (!validate()) return;
+
+    const newUser = {
+      id: String(userData.length + 1).padStart(2, "0"),
+      ...formData,
+      friends: Number(formData.friends),
+      followers: Number(formData.followers),
+      verified: false,
+      image: `https://i.pravatar.cc/150?img=${Math.floor(
+        Math.random() * 70
+      )}`,
+    };
+
+    setUserData((prev) => [...prev, newUser]);
+
+    setFormData({
+      name: "",
+      email: "",
+      country: "",
+      friends: "",
+      followers: "",
+      status: "Active",
+    });
+
+    setErrors({});
+    setShowForm(false);
+  };
+
   return (
     <>
       <Navbar />
 
-      {/* Add New Button */}
+      {/* BUTTON */}
       <div className="users-actions">
-        <button className="add-user-btn"   onClick={() => setShowForm(true)}>
+        <button
+          className="add-user-btn"
+          onClick={() => setShowForm(true)}
+        >
           Add New +
         </button>
       </div>
 
+      {/* LIST */}
       <main className="users-page">
-
         <div className="users-card">
 
-          {/* =========================
-              HEADER
-          ========================= */}
-
           <div className="users-header">
-
-            <div className="header-number">
-              #
-            </div>
-
-            <div className="header-profile">
-              User Profile
-            </div>
-
-            <div className="header-country">
-              Country
-            </div>
-
-            <div className="header-friends">
-              Friends
-            </div>
-
-            <div className="header-followers">
-              Followers
-            </div>
-
-            <div className="header-status">
-              Status
-            </div>
-
+            <div>#</div>
+            <div>User Profile</div>
+            <div>Country</div>
+            <div>Friends</div>
+            <div>Followers</div>
+            <div>Status</div>
           </div>
-
-
-          {/* =========================
-              USERS
-          ========================= */}
 
           <div className="users-list">
-
-            {users.map((user) => (
-              <UserList
-                key={user.id}
-                user={user}
-              />
+            {userData.map((user) => (
+              <UserList key={user.id} user={user} />
             ))}
-
           </div>
 
         </div>
-
       </main>
-{showForm && (
-  <div className="modal-overlay">
-    <div className="modal">
 
-      {/* HEADER */}
-      <div className="modal-header">
-        <h2>Add New User</h2>
-        <button onClick={() => setShowForm(false)}>✕</button>
-      </div>
+      {/* MODAL */}
+      {showForm && (
+        <div
+          className="modal-overlay"
+          onClick={() => setShowForm(false)}
+        >
+          <div
+            className="modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="modal-header">
+              <h2>Add New User</h2>
+              <button onClick={() => setShowForm(false)}>✕</button>
+            </div>
 
-      {/* FORM */}
-      <form className="modal-form">
+            <form className="modal-form" onSubmit={addUser}>
 
-        <div className="form-group">
-          <label>Name</label>
-          <input type="text" placeholder="e.g. Jordan Lee" />
-        </div>
+              {/* NAME */}
+              <div className="form-group">
+                <label>Name</label>
+                <input
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className={errors.name ? "error-input" : ""}
+                />
+                {errors.name && <span className="error">{errors.name}</span>}
+              </div>
 
-        <div className="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="e.g. jordan@company.com" />
-        </div>
+              {/* EMAIL */}
+              <div className="form-group">
+                <label>Email</label>
+                <input
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className={errors.email ? "error-input" : ""}
+                />
+                {errors.email && <span className="error">{errors.email}</span>}
+              </div>
 
-        <div className="form-group">
-          <label>Country</label>
-          <input type="text" placeholder="e.g. New Lisbon" />
-        </div>
+              {/* COUNTRY */}
+              <div className="form-group">
+                <label>Country</label>
+                <input
+                  name="country"
+                  value={formData.country}
+                  onChange={handleChange}
+                  className={errors.country ? "error-input" : ""}
+                />
+                {errors.country && <span className="error">{errors.country}</span>}
+              </div>
 
-        <div className="form-row">
-          <div className="form-group">
-            <label>Friends</label>
-            <input type="number" placeholder="0" />
+              {/* ROW */}
+              <div className="form-row">
+
+                <div className="form-group">
+                  <label>Friends</label>
+                  <input
+                    type="number"
+                    name="friends"
+                    value={formData.friends}
+                    onChange={handleChange}
+                    className={errors.friends ? "error-input" : ""}
+                  />
+                  {errors.friends && <span className="error">{errors.friends}</span>}
+                </div>
+
+                <div className="form-group">
+                  <label>Followers</label>
+                  <input
+                    type="number"
+                    name="followers"
+                    value={formData.followers}
+                    onChange={handleChange}
+                    className={errors.followers ? "error-input" : ""}
+                  />
+                  {errors.followers && <span className="error">{errors.followers}</span>}
+                </div>
+
+              </div>
+
+              {/* STATUS */}
+              <div className="form-group">
+                <label>Status</label>
+                <select
+                  name="status"
+                  value={formData.status}
+                  onChange={handleChange}
+                >
+                  <option value="Active">Active</option>
+                  <option value="Pending">Pending</option>
+                  <option value="Rejected">Rejected</option>
+                </select>
+              </div>
+
+              {/* FOOTER */}
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="cancel-btn"
+                  onClick={() => setShowForm(false)}
+                >
+                  Cancel
+                </button>
+
+                <button type="submit" className="submit-btn">
+                  Add User
+                </button>
+              </div>
+
+            </form>
           </div>
-
-          <div className="form-group">
-            <label>Followers</label>
-            <input type="number" placeholder="1" />
-          </div>
         </div>
-
-        <div className="form-group">
-          <label>Status</label>
-          <select>
-            <option>Active</option>
-            <option>Pending</option>
-            <option>Rejected</option>
-          </select>
-        </div>
-
-        <button className="submit-btn">Add User</button>
-
-      </form>
-      <div className="modal-footer">
-  <button
-    type="button"
-    className="cancel-btn"
-    onClick={() => setShowForm(false)}
-  >
-    Cancel
-  </button>
-
-  <button
-    type="button"
-    className="submit-btn"
-  >
-    Add User
-  </button>
-    <FiX />
-</div>
-    </div>
-  </div>
-)}
+      )}
     </>
   );
 };
