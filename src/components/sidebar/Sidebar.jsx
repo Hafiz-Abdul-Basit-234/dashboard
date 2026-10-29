@@ -1,5 +1,7 @@
+
 import { Link } from "react-router-dom";
 import "./Sidebar.css";
+
 import {
   FiPackage,
   FiGrid,
@@ -14,9 +16,10 @@ import {
   FiMessageSquare,
   FiChevronDown,
   FiX,
+  FiLogOut,
 } from "react-icons/fi";
 
-const Sidebar = ({ isOpen, closeSidebar }) => {
+const Sidebar = ({ isOpen, closeSidebar, onLogout }) => {
   return (
     <>
       {/* Overlay */}
@@ -28,17 +31,17 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
       {/* Sidebar */}
       <aside className={`sidebar ${isOpen ? "open" : ""}`}>
 
-        {/* Close */}
+        {/* Close Button */}
         <button className="sidebar-close" onClick={closeSidebar}>
           <FiX />
         </button>
 
-        <Link to='/' className="dahbord">
-        <h3>Dashboard </h3>
+        {/* Dashboard */}
+        <Link to="/dashbord" className="dahbord">
+          <h3>Dashboard</h3>
         </Link>
 
         <div className="sidebar-menu">
-
           <div className="sidebar-item active">
             <FiGrid />
             <span>Default</span>
@@ -63,7 +66,6 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
             <FiBookOpen />
             <span>Blog</span>
           </div>
-
         </div>
 
         <div className="sidebar-line"></div>
@@ -74,49 +76,61 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
           <FiBarChart2 />
           <span>Statistics</span>
         </div>
-<div className="sidebar-line"></div>
 
-<h3>Application</h3>
+        <div className="sidebar-line"></div>
 
-<div className="sidebar-menu">
+        <h3>Application</h3>
 
-  <Link to="/users" className="users-link">
-  <div className="sidebar-item">
-    <FiUser />
-  <span>Users</span>
+        <div className="sidebar-menu">
+          <Link to="/users" className="users-link">
+            <div className="sidebar-item">
+              <FiUser />
+              <span>Users</span>
+              <FiChevronDown className="arrow" />
+            </div>
+          </Link>
 
+          <Link to="/orders" className="users-link">
+            <div className="sidebar-item">
+              <FiHeadphones />
+              <span>Customer</span>
+              <FiChevronDown className="arrow" />
+            </div>
+          </Link>
 
-    <FiChevronDown className="arrow" />
-  </div>
-</Link>
-<Link to='/orders' className="users-link">
-  <div className="sidebar-item">
-    <FiHeadphones />
-    <span>Customer</span>
+          <Link to="/orders" className="users-link">
+            <div className="sidebar-item">
+              <FiShoppingCart />
+              <span>Order</span>
+              <FiChevronDown className="arrow" />
+            </div>
+          </Link>
 
-    <FiChevronDown className="arrow" />
-  </div>
-  </Link>
-  <Link to="/orders" className="users-link">
-  <div className="sidebar-item">
-    <FiShoppingCart />
-    <span>Order</span>
+          <div className="sidebar-item">
+            <FiMessageSquare />
+            <span>Chat</span>
+          </div>
+        </div>
 
-    <FiChevronDown className="arrow" />
-  </div>
-</Link>
-  <div className="sidebar-item">
-    <FiMessageSquare />
-    <span>Chat</span>
-  </div>
+        <Link to="/products" className="users-link">
+          <div className="sidebar-item">
+            <FiPackage />
+            <span>Products</span>
+          </div>
+        </Link>
 
-</div>
-<Link to="/products" className="users-link">
-  <div className="sidebar-item">
-    <FiPackage />
-    <span>Products</span>
-  </div>
-</Link>
+        {/* Logout Button */}
+        <div className="sidebar-logout">
+          <button
+            type="button"
+            className="logout-btn"
+            onClick={onLogout}
+          >
+            <FiLogOut />
+            <span>Logout</span>
+          </button>
+        </div>
+
       </aside>
     </>
   );

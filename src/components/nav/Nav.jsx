@@ -1,7 +1,7 @@
+
 import { useState } from "react";
 
 import "./Nav.css";
-
 import Sidebar from "../sidebar/Sidebar";
 
 import { LuMessageCircleMore } from "react-icons/lu";
@@ -14,33 +14,24 @@ import {
 } from "react-icons/fi";
 
 import { TbAdjustmentsHorizontal } from "react-icons/tb";
-
 import { MdOutlineTranslate } from "react-icons/md";
 
-
-const Navbar = () => {
-
+const Navbar = ({ onLogout }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
+  const closeSidebar = () => {
+    setIsSidebarOpen(false);
+  };
 
   return (
     <>
-
       <nav className="navbar">
-
         <div className="nav-left">
-
           <div className="logo">
-
-            
-
             <h2>SHOP.CO</h2>
-
           </div>
 
-
           {/* THREE LINE BUTTON */}
-
           <button
             className="menu-btn"
             onClick={() => setIsSidebarOpen(true)}
@@ -48,9 +39,7 @@ const Navbar = () => {
             <FiMenu />
           </button>
 
-
           <div className="search-box">
-
             <FiSearch className="search-icon" />
 
             <input
@@ -61,14 +50,10 @@ const Navbar = () => {
             <div className="filter-btn">
               <TbAdjustmentsHorizontal />
             </div>
-
           </div>
-
         </div>
 
-
         <div className="nav-right">
-
           <div className="icon-box">
             <LuMessageCircleMore />
           </div>
@@ -82,31 +67,24 @@ const Navbar = () => {
           </div>
 
           <div className="profile-box">
-
             <img
               src="https://i.pravatar.cc/100"
               alt="profile"
             />
 
             <FiSettings />
-
           </div>
-
         </div>
-
       </nav>
 
-
       {/* SIDEBAR */}
-
       <Sidebar
         isOpen={isSidebarOpen}
-        closeSidebar={() => setIsSidebarOpen(false)}
+        closeSidebar={closeSidebar}
+        onLogout={onLogout}
       />
-
     </>
   );
 };
-
 
 export default Navbar;

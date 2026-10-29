@@ -5,10 +5,10 @@ import OrdersCard from "../../components/Cards/OrdersCard";
 import IncomeBlueCard from "../../components/Cards/IncomeBlueCard";
 import IncomeWhiteCard from "../../components/Cards/IncomeWhiteCard";
 import GrowthChart from "../../components/graph/Graph";
-const Dashboard = () => {
+const Dashbord = ({ onLogout }) => {
   return (
     <>
-      <Navbar/>
+      <Navbar onLogout={onLogout}/>
  <div className="dashboard">
 
       <div className="top-row">
@@ -19,6 +19,7 @@ const Dashboard = () => {
       <div className="bottom-row">
         <IncomeBlueCard />
         <IncomeWhiteCard />
+       
       </div>
      </div>
 
@@ -27,4 +28,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Dashbord;
