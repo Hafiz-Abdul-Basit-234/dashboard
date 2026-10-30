@@ -16,7 +16,7 @@ const emptyForm = {
   stock: "10",
 };
 
-const Products = () => {
+const Products = ({ onLogout }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -217,7 +217,7 @@ const Products = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar onLogout={onLogout} />
 
       <div className="products">
         <div className="products-top">

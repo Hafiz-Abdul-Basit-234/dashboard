@@ -13,7 +13,7 @@ const ordersData = [
   { id: "#1008", customer: "Hassan Ali", product: "Sony Headphones", amount: "$350", status: "Pending", image: "https://i.pravatar.cc/150?img=8" },
 ];
 
-const Order = () => {
+const Order = ({ onLogout }) => {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("All");
 

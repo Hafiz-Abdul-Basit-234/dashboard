@@ -55,7 +55,7 @@ const App = () => {
         path="/products"
         element={
           isLoggedIn ? (
-            <Products />
+            <Products onLogout={handleLogout}  />
           ) : (
             <Navigate to="/" replace />
           )
@@ -66,7 +66,7 @@ const App = () => {
         path="/orders"
         element={
           isLoggedIn ? (
-            <Order />
+            <Order onLogout={handleLogout}  />
           ) : (
             <Navigate to="/" replace />
           )
@@ -77,7 +77,7 @@ const App = () => {
         path="/users"
         element={
           isLoggedIn ? (
-            <Users />
+            <Users onLogout={handleLogout}  />
           ) : (
             <Navigate to="/" replace />
           )
