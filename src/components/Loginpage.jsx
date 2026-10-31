@@ -1,8 +1,8 @@
-
 import { useState } from "react";
-const API_URL = (
-  import.meta.env.VITE_API_URL || ""
-).replace(/\/$/, "");
+
+// Live Backend URL
+const API_URL = "https://shop-backend-vjqf.vercel.app";
+
 function LoginPage({ onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -11,37 +11,64 @@ function LoginPage({ onLogin }) {
 
   async function handleLogin(e) {
     e.preventDefault();
+
     setError("");
     setLoading(true);
 
     try {
-      
-
-        const response = await fetch(
-  `${API_URL}/api/auth/login`,
+      const response = await fetch(
+        `${API_URL}/api/auth/login`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ email, password }),
+          body: JSON.stringify({
+            email: email.trim(),
+            password,
+          }),
         }
       );
 
-      const data = await response.json();
+      // Response ko pehle text mein read karo
+      const responseText = await response.text();
 
+      // JSON mein convert karo
+      let data;
+
+      try {
+        data = JSON.parse(responseText);
+      } catch {
+        throw new Error(
+          "Backend se valid JSON response nahi aa raha. Vercel API routing check karo."
+        );
+      }
+
+      // Login error check
       if (!response.ok) {
         throw new Error(data.message || "Login failed");
       }
 
+      // Token check
+      if (!data.token) {
+        throw new Error("Login successful response mein token nahi mila.");
+      }
+
+      // Token save karo
       localStorage.setItem("adminToken", data.token);
+
+      // Dashboard open karo
       onLogin();
+
     } catch (err) {
+      console.error("Login Error:", err);
+
       setError(
         err.message === "Failed to fetch"
-          ? "Backend se connection nahi ho raha."
+          ? "Backend se connection nahi ho raha. Internet, CORS aur backend URL check karo."
           : err.message
       );
+
     } finally {
       setLoading(false);
     }
@@ -50,6 +77,7 @@ function LoginPage({ onLogin }) {
   return (
     <div style={styles.page}>
       <div style={styles.card}>
+
         <div style={styles.brand}>
           <div style={styles.logo}>A</div>
           <span style={styles.brandName}>Admin Panel</span>
@@ -57,12 +85,14 @@ function LoginPage({ onLogin }) {
 
         <div style={styles.header}>
           <h1 style={styles.heading}>Welcome back</h1>
+
           <p style={styles.subtitle}>
             Please enter your details to sign in.
           </p>
         </div>
 
         <form onSubmit={handleLogin} style={styles.form}>
+
           <div style={styles.field}>
             <label htmlFor="email" style={styles.label}>
               Email address
@@ -113,12 +143,14 @@ function LoginPage({ onLogin }) {
           >
             {loading ? "Signing in..." : "Sign in"}
           </button>
+
         </form>
 
         <div style={styles.bottom}>
           <span style={styles.securityIcon}>●</span>
           Secure administrator access
         </div>
+
       </div>
 
       <p style={styles.copyright}>
