@@ -4,8 +4,7 @@ import Navbar from "../../components/nav/Nav";
 import { FiEdit, FiTrash2, FiPlus, FiX } from "react-icons/fi";
 import "./Products.css";
 
-const API_URL = "http://localhost:4000/api/products";
-
+const API_URL = "https://shop-backend-vjqf.vercel.app/api/products";
 const emptyForm = {
   name: "",
   price: "",
