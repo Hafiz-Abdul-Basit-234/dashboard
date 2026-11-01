@@ -1,5 +1,7 @@
 
-import { useEffect, useState } from "react";
+
+
+import { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import LoginPage from "./components/Loginpage";
@@ -9,19 +11,14 @@ import Order from "./pages/orders/Order";
 import Products from "./pages/products/Products";
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    () => !!localStorage.getItem("adminToken")
+  );
 
-  // App open ya refresh hone par purana login clear karo
-  useEffect(() => {
-    localStorage.removeItem("adminToken");
-  }, []);
-
-  // Successful login
   const handleLogin = () => {
     setIsLoggedIn(true);
   };
 
-  // Logout
   const handleLogout = () => {
     localStorage.removeItem("adminToken");
     setIsLoggedIn(false);
@@ -55,7 +52,7 @@ const App = () => {
         path="/products"
         element={
           isLoggedIn ? (
-            <Products onLogout={handleLogout}  />
+            <Products onLogout={handleLogout} />
           ) : (
             <Navigate to="/" replace />
           )
@@ -66,7 +63,7 @@ const App = () => {
         path="/orders"
         element={
           isLoggedIn ? (
-            <Order onLogout={handleLogout}  />
+            <Order onLogout={handleLogout} />
           ) : (
             <Navigate to="/" replace />
           )
@@ -77,7 +74,7 @@ const App = () => {
         path="/users"
         element={
           isLoggedIn ? (
-            <Users onLogout={handleLogout}  />
+            <Users onLogout={handleLogout} />
           ) : (
             <Navigate to="/" replace />
           )
@@ -90,3 +87,4 @@ const App = () => {
 };
 
 export default App;
+

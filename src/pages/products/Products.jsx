@@ -30,7 +30,13 @@ const Products = ({ onLogout }) => {
     setError("");
 
     try {
-      const response = await fetch(API_URL);
+      const token = localStorage.getItem("adminToken");
+
+const response = await fetch(API_URL, {
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+});
 
       if (!response.ok) {
         throw new Error("Products load nahi ho sake.");
